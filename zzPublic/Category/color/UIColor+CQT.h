@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/* 通过RGB和Alpha值来获取UIColor对象 */
+#define HEX_RGBA(rgbValue, alphaValue) \
+[UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0x0000FF))/255.0 \
+alpha:alphaValue]
+/* 通过RGB来获取UIColor对象 */
+#define HEX_RGB(rgbValue) HEX_RGBA(rgbValue, 1)
 @interface UIColor(CQT)
 
 
