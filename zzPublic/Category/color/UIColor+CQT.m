@@ -67,16 +67,16 @@
         return [UIColor clearColor];
     }
     
-    unsigned int red, green, blue;
+    unsigned long long red, green, blue;
     NSRange range;
     range.length = 2;
     
     range.location = 1;
-    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexInt:&red];
+    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexLongLong:&red];
     range.location = 3;
-    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexInt:&green];
+    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexLongLong:&green];
     range.location = 5;
-    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexInt:&blue];
+    [[NSScanner scannerWithString:[hexColor substringWithRange:range]] scanHexLongLong:&blue];
     
     return [UIColor colorWithRed:(float)(red/255.0f) green:(float)(green/255.0f) blue:(float)(blue/255.0f) alpha:alpha];
 }
